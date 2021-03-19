@@ -1,6 +1,7 @@
 import styled from "styled-components";
+import { theme } from "@styles/theme";
 
-export const FormInputWrapper = styled.div`
+export const FormInputStyle = styled.div`
     width: 100%;
     display:flex;
     flex-direction: column;
@@ -16,7 +17,7 @@ export const FormInputLabel = styled.label`
     font-style: normal;
     line-height: normal;
     letter-spacing: normal;
-    color: #5b7289;
+    color: ${theme.blueGrey};
 `;
 
 export const FormInputText = styled.input`

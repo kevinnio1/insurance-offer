@@ -1,5 +1,5 @@
 import React from "react"
-import { FormLinkTextA } from "./formLinkTextStyle";
+import { FormLinkTextA } from "@components/form/auth/formLinkText/formLinkTextStyle";
 
 interface FormLinkTextProps {
     text: string;

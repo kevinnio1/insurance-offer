@@ -1,5 +1,5 @@
 import React from "react";
-import { FormButtonSubmit } from "./formButtonStyle";
+import { FormButtonSubmit } from "@components/form/auth/formButton/formButtonStyle";
 
 interface FormButtonProps {
     text: string;

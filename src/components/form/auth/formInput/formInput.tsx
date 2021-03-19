@@ -1,5 +1,5 @@
 import React from "react"
-import { FormInputWrapper, FormInputLabel, FormInputText } from "./formInputStyle";
+import { FormInputStyle, FormInputLabel, FormInputText } from "@components/form/auth/formInput/formInputStyle";
 
 interface FormInputProps {
     value: string;
@@ -10,12 +10,12 @@ interface FormInputProps {
 }
 
 export const FormInput: React.FC<FormInputProps> = (props) => {
-    const {label, type, required } = props;
+    const {label, type, required, value } = props;
 
     return (
-        <FormInputWrapper>
+        <FormInputStyle>
             <FormInputLabel>{label}</FormInputLabel>
-            <FormInputText type={type} required={required} />
-        </FormInputWrapper>
+            <FormInputText type={type} required={required} value={value}/>
+        </FormInputStyle>
     )
 }

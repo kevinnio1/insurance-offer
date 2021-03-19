@@ -77,7 +77,7 @@ export const BigLogo = styled.img`
     -ms-user-select: none;
 `;
 
-export const FromWrapper = styled.div`
+export const FromLoginWrapper = styled.div`
     width: 350px;
     margin: 0 auto;
     text-align: center;

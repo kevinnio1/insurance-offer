@@ -1,5 +1,5 @@
 import React from "react"
-import { FormTitleSpan } from "./formTitleStyle";
+import { FormTitleSpan } from "@components/form/auth/formTitle/formTitleStyle";
 
 interface FormTitleProps {
     title: string;

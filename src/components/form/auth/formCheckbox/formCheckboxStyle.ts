@@ -1,6 +1,7 @@
 import styled from "styled-components";
+import { theme } from "@styles/theme";
 
-export const FormCheckboxWrapper = styled.div`
+export const FormCheckboxStyle = styled.div`
     display:flex;
     align-items: center;
 `;
@@ -16,6 +17,6 @@ export const FormCheckboxTextWrapper = styled.span`
     font-style: normal;
     line-height: normal;
     letter-spacing: normal;
-    color: #5b7289;
+    color: ${theme.blueGrey};
     margin-left: 7px;
 `;
