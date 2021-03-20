@@ -1,8 +1,7 @@
 import React from "react";
 import { PlanStyle, PlanTitle, PlanWrapper } from "@pages/plan/planStyle";
 import { FormOptionSwitch } from "@components/form/generic/formOptionSwitch/formOptionSwitch";
-import { LinkWithIcon } from "@components/common/linkWithIcon/linkWithIcon";
-import { faChevronLeft } from '@fortawesome/free-solid-svg-icons';
+import { LinkWithIcon } from "@components/generic/linkWithIcon/linkWithIcon";
 import URLICON from "@assets/images/icon-comparison.svg";
 import { CardPlan } from "@components/card/plan/cardPlan";
 
@@ -36,7 +35,7 @@ export const Plan: React.FC = () => {
                 personalAssistanceAbroad={10000}
                 travelAssistanceAbroad={25000}
                 coverageDuration={"1 year"}
-                isSelected={true}
+                isSelected={false}
             />
             </PlanWrapper>
             <LinkWithIcon

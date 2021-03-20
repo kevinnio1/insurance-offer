@@ -1,7 +1,7 @@
 
 
 import React from "react";
-import { LinkWithIconA, LinkWithIconStyle, UrlIcon } from "@components/common/linkWithIcon/linkWithIconStyle";
+import { LinkWithIconA, LinkWithIconStyle, UrlIcon } from "@components/generic/linkWithIcon/linkWithIconStyle";
 
 interface LinkWithIconProps {
     iconUrl: string;

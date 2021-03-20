@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { theme } from "@styles/theme";
 import SELECT_CHEVRON from "@assets/images/icon-dropdown.svg";
+import { GenericLabel } from "@styles/generics";
 
 export const FormSelectBoxStyle = styled.div`
     width: 100%;
@@ -11,14 +12,10 @@ export const FormSelectBoxStyle = styled.div`
     margin-bottom: 20px;
 `;
 
-export const FormSelectBoxLabel = styled.label`
+export const FormSelectBoxLabel = styled(GenericLabel)`
     text-align: left;
     font-size: 15px;
     font-weight: normal;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: normal;
-    letter-spacing: normal;
     color: ${theme.greyishBrown};
     width: 150px;
 `;

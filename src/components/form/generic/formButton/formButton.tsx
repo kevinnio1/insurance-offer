@@ -1,5 +1,6 @@
 import React from "react";
-import { FormButtonSubmit, FormButtonLabel, FormButtonStyle } from "@components/form/generic/formButton/formButtonStyle";
+import { FormButtonLabel, FormButtonStyle } from "@components/form/generic/formButton/formButtonStyle";
+import { Button } from "@components/generic/button/button";
 
 interface FormButtonProps {
     text: string;
@@ -13,9 +14,11 @@ export const FormButton: React.FC<FormButtonProps> = (props) => {
     return (
         <FormButtonStyle>
             <FormButtonLabel>{label}</FormButtonLabel>
-            <FormButtonSubmit onClick={onSubmit}>
-                {text}
-            </FormButtonSubmit>
+            <Button
+                text="Get a price"
+                type="primary"
+                onClick={onSubmit}
+            />
         </FormButtonStyle>
     )
 }

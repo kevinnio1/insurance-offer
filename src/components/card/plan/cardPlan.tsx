@@ -1,5 +1,7 @@
 import React from "react";
-import { CardPlanStyle, CardPrice, CardPriceText, CardPriceWrapper, CardRowSpan, CardRowWrapper, CardTitle, CurrencySpan } from "@components/card/plan/cardPlanStyle";
+import { CardPlanStyle, CardPrice, CardPriceText, CardPriceWrapper, CardRowBoldText, CardRowSpan, CardRowWrapper, CardRowWrapperFlex, CardTitle, CurrencySpan } from "@components/card/plan/cardPlanStyle";
+import { Button } from "@components/generic/button/button";
+import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 
 interface CardPlanProps {
     title: string;
@@ -13,34 +15,52 @@ interface CardPlanProps {
 }
 
 export const CardPlan: React.FC<CardPlanProps> = (props) => {
-    const { title, price, travelDuration , medicalExpenses, personalAssistanceAbroad, travelAssistanceAbroad, coverageDuration, isSelected} = props;
+    const { title, price, travelDuration, medicalExpenses, personalAssistanceAbroad, travelAssistanceAbroad, coverageDuration, isSelected } = props;
 
     return (
-        <CardPlanStyle>
+        <CardPlanStyle isSelected={isSelected}>
             <CardRowWrapper>
                 <CardTitle>{title}</CardTitle>
             </CardRowWrapper>
-            <CardPriceWrapper>
+            <CardPriceWrapper isSelected={isSelected}>
                 <CardPrice>
                     {price.toFixed(2).toString().replace(".", ",")} <CurrencySpan>€</CurrencySpan>
                 </CardPrice>
                 <CardPriceText>YEARLY INCL. TAXES</CardPriceText>
             </CardPriceWrapper>
             <CardRowWrapper>
-                <CardRowSpan><b>Maximum duration travel</b> of <b>{travelDuration} days</b></CardRowSpan>
+                <CardRowSpan><CardRowBoldText>Maximum duration travel</CardRowBoldText> of <CardRowBoldText>{travelDuration} days</CardRowBoldText></CardRowSpan>
             </CardRowWrapper>
             <CardRowWrapper>
-                <CardRowSpan><b>Medical expenses reimbursement</b> up to <b>{medicalExpenses.toLocaleString("nl-BE")} €</b></CardRowSpan>
+                <CardRowSpan><CardRowBoldText>Medical expenses reimbursement</CardRowBoldText> up to <CardRowBoldText>{medicalExpenses.toLocaleString("nl-BE")} €</CardRowBoldText></CardRowSpan>
             </CardRowWrapper>
             <CardRowWrapper>
-                <CardRowSpan><b>Personal assistance abroad</b> up to <b>{personalAssistanceAbroad.toLocaleString("nl-BE")} €</b></CardRowSpan>
+                <CardRowSpan><CardRowBoldText>Personal assistance abroad</CardRowBoldText> up to <CardRowBoldText>{personalAssistanceAbroad.toLocaleString("nl-BE")} €</CardRowBoldText></CardRowSpan>
             </CardRowWrapper>
             <CardRowWrapper>
-                <CardRowSpan><b>Travel assistance abroad</b> up to <b>{travelAssistanceAbroad.toLocaleString("nl-BE")} €</b> per insured per travel</CardRowSpan>
+                <CardRowSpan><CardRowBoldText>Travel assistance abroad</CardRowBoldText> up to <CardRowBoldText>{travelAssistanceAbroad.toLocaleString("nl-BE")} €</CardRowBoldText> per insured per travel</CardRowSpan>
             </CardRowWrapper>
             <CardRowWrapper>
-                <CardRowSpan><b>Coverage duration: {coverageDuration}</b></CardRowSpan>
+                <CardRowSpan><CardRowBoldText>Coverage duration: {coverageDuration}</CardRowBoldText></CardRowSpan>
             </CardRowWrapper>
+            <CardRowWrapperFlex>
+                    {isSelected ? (
+                        <Button
+                            text="Plan selected"
+                            type="default"
+                            fontAwesomeIcon={faCheckCircle}
+                            onClick={() => null}
+                            fullWidth
+                        />
+                    ) : (
+                        <Button
+                            text="Choose this plan"
+                            type="primary"
+                            onClick={() => null}
+                            fullWidth
+                        />
+                    )}
+            </CardRowWrapperFlex>
         </CardPlanStyle>
     )
 }

@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { theme } from "@styles/theme";
+import { GenericLabel } from "@styles/generics";
 
 export const FormInputStyle = styled.div`
     width: 100%;
@@ -8,15 +9,11 @@ export const FormInputStyle = styled.div`
     margin-top: 20px;
 `;
 
-export const FormInputLabel = styled.label`
+export const FormInputLabel = styled(GenericLabel)`
     text-align: left;
     margin: 0 70px 0px 0;
     font-size: 10px;
     font-weight: normal;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: normal;
-    letter-spacing: normal;
     color: ${theme.blueGrey};
 `;
 

@@ -1,6 +1,7 @@
+import { GenericButton } from "@styles/generics";
 import styled from "styled-components";
 
-export const FormButtonSubmit = styled.button`
+export const FormButtonSubmit = styled(GenericButton)`
     width: 100%;
     height: 45px;
     margin: 20px 0 0;
@@ -10,10 +11,6 @@ export const FormButtonSubmit = styled.button`
     background-color: #317bda;
     font-size: 14px;
     font-weight: bold;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: normal;
-    letter-spacing: normal;
     text-align: center;
     color: #ffffff;
     margin-bottom: 20px;

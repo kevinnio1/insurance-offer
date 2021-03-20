@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import BACKGROUND from "@assets/images/background-travel.svg";
 import { theme } from "@styles/theme";
+import { GenericDiv } from "@styles/generics";
 
 export const PlanStyle = styled.div`
     background-image: url(${BACKGROUND});
@@ -8,17 +9,14 @@ export const PlanStyle = styled.div`
     background-size: 100%;
     min-height: 100vh;
     text-align: center;
+    background-position-y: -200px;
 `;
 
-export const PlanTitle = styled.div`
+export const PlanTitle = styled(GenericDiv)`
     padding-top: 40px;
     font-family: 'Raleway';
     font-size: 26px;
     font-weight: bold;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: normal;
-    letter-spacing: normal;
     text-align: center;
     color: #ffffff;
 `;

@@ -3,7 +3,7 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import { Login } from '@pages/auth/login/login';
 import { RequestPrice } from '@pages/requestPrice/requestPrice';
 import { Plan } from '@pages/plan/plan';
-import { Layout } from '@components/common/layout/layout';
+import { Layout } from '@components/generic/layout/layout';
 
 export const App: React.FC = () => (
 

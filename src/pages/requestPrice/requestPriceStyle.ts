@@ -3,7 +3,6 @@ import BITMAP from "@assets/images/bitmap@3x.png";
 
 export const RequestPriceStyle = styled.div`
     min-height: 100vh;   
-    // background: linear-gradient(122deg, rgba(49,123,218,0.6), rgba(51,195,200,0.6)), url(${BITMAP});
     background-image: linear-gradient(122deg, #317bda -6%, #33c3c8);
 `;
 

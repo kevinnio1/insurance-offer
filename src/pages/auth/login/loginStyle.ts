@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { GenericButton } from "@styles/generics";
 
 export const LoginStyle = styled.div`
     width: 100%;
@@ -83,7 +84,7 @@ export const FromLoginWrapper = styled.div`
     text-align: center;
 `;
 
-export const ButtonTransparent = styled.button`
+export const ButtonTransparent = styled(GenericButton)`
     width: 100%;
     height: 45px;
     margin: 20px 0 0;
@@ -93,10 +94,6 @@ export const ButtonTransparent = styled.button`
     background: rgba(255,255,255,0);
     font-size: 14px;
     font-weight: bold;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: normal;
-    letter-spacing: normal;
     text-align: center;
     color: #ffffff;
 

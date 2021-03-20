@@ -1,3 +1,4 @@
+import { GenericA } from "@styles/generics";
 import styled from "styled-components";
 
 export const LinkWithIconStyle = styled.div`
@@ -7,13 +8,9 @@ export const LinkWithIconStyle = styled.div`
     padding-top: 30px;
 `;
 
-export const LinkWithIconA = styled.a`
+export const LinkWithIconA = styled(GenericA)`
     font-size: 14px;
     font-weight: bold;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: normal;
-    letter-spacing: normal;
     color: #31cfda;
 `;
 
