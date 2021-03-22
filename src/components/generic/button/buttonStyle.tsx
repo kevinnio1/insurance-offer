@@ -1,5 +1,4 @@
-import styled, { StyledFunction } from "styled-components";
-import { theme } from "@styles/theme";
+import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { GenericButton } from "@styles/generics";
 

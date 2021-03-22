@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { theme } from "@styles/theme";
-import { GenericButton, GenericLabel } from "@styles/generics";
+import { GenericLabel } from "@styles/generics";
 
 
 export const FormButtonStyle = styled.div`

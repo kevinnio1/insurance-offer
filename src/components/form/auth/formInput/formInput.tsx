@@ -10,12 +10,12 @@ interface FormInputProps {
 }
 
 export const FormInput: React.FC<FormInputProps> = (props) => {
-    const {label, type, required, value } = props;
+    const {label, type, required, value, handler } = props;
 
     return (
         <FormInputStyle>
             <FormInputLabel>{label}</FormInputLabel>
-            <FormInputText type={type} required={required} value={value}/>
+            <FormInputText type={type} required={required} value={value} onChange={handler}/>
         </FormInputStyle>
     )
 }

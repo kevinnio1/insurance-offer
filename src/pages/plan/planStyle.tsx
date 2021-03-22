@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import BACKGROUND from "@assets/images/background-travel.svg";
-import { theme } from "@styles/theme";
 import { GenericDiv } from "@styles/generics";
 
 export const PlanStyle = styled.div`

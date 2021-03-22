@@ -8,11 +8,7 @@ export const GenericSpan = styled.span`
     letter-spacing: normal;
 `;
 
-export const GenericCenterSpan = styled.span`
-    font-stretch: normal;
-    font-style: normal;
-    line-height: normal;
-    letter-spacing: normal;
+export const GenericCenterSpan = styled(GenericSpan)`
     text-align: center;
 `;
 

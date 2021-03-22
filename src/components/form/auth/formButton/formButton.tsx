@@ -3,14 +3,13 @@ import { FormButtonSubmit } from "@components/form/auth/formButton/formButtonSty
 
 interface FormButtonProps {
     text: string;
-    onSubmit:  React.MouseEventHandler<HTMLButtonElement>;
 }
 
 export const FormButton: React.FC<FormButtonProps> = (props) => {
-    const {text, onSubmit } = props;
+    const {text } = props;
 
     return (
-        <FormButtonSubmit onClick={onSubmit}>
+        <FormButtonSubmit type="submit">
             {text}
         </FormButtonSubmit>
     )

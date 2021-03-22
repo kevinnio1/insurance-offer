@@ -25,3 +25,6 @@ export const DetailFormWrapper = styled.div`
     box-shadow: 0 2px 4px 0 rgba(72, 72, 72, 0.5);
 `;
 
+export const RequestPriceForm = styled.form`
+
+`;

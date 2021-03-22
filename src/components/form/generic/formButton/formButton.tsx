@@ -5,19 +5,19 @@ import { Button } from "@components/generic/button/button";
 interface FormButtonProps {
     text: string;
     label?: string;
-    onSubmit: React.MouseEventHandler<HTMLButtonElement>;
+    handler: React.MouseEventHandler<HTMLButtonElement>;
 }
 
 export const FormButton: React.FC<FormButtonProps> = (props) => {
-    const { text, onSubmit, label } = props;
+    const { text, handler, label } = props;
 
     return (
         <FormButtonStyle>
             <FormButtonLabel>{label}</FormButtonLabel>
             <Button
-                text="Get a price"
+                text={text}
                 type="primary"
-                onClick={onSubmit}
+                onClick={handler}
             />
         </FormButtonStyle>
     )

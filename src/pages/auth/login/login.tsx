@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Q_Logo from "@assets/images/logo_white.svg";
 import { Center, Footer, FooterText, ImageWrapper, LeftWhiteArrow, LoginStyle, BigLogo, TopBanner, TopBannerLink, FromLoginWrapper, ButtonTransparent, FormLogin, FormTitleWrapper, FormLoginItems, FormExtraWrapper } from "@pages/auth/login/loginStyle";
 import { faChevronLeft } from '@fortawesome/free-solid-svg-icons';
@@ -7,9 +7,40 @@ import { FormInput } from "@components/form/auth/formInput/formInput";
 import { FormCheckbox } from "@components/form/auth/formCheckbox/formCheckbox";
 import { FormLinkText } from "@components/form/auth/formLinkText/formLinkText";
 import { FormButton } from "@components/form/auth/formButton/formButton";
+import { useAuthContext } from "@hooks/useAuthContext";
+import { Redirect } from "react-router-dom";
+import { AuthApiService } from "@api/auth/auth";
 
 
 export const Login: React.FC = () => {
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const {
+        authState: { isAuthenticated },
+        login
+    } = useAuthContext();
+
+    const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        e.preventDefault();
+        setEmail(e.target.value);
+    }
+
+    const handlePasswordChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        e.preventDefault();
+        setPassword(e.target.value);
+    }
+
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        const res = await AuthApiService.login({ email, password });
+        if (res.access_token) {
+            login(res.access_token);
+        }
+    }
+
+    if (isAuthenticated) {
+        return <Redirect to="/" />
+    }
 
     return (
         <LoginStyle>
@@ -22,24 +53,24 @@ export const Login: React.FC = () => {
                     <BigLogo src={Q_Logo} />
                 </ImageWrapper>
                 <FromLoginWrapper>
-                    <FormLogin>
+                    <FormLogin onSubmit={handleSubmit}>
                         <FormLoginItems>
                             <FormTitleWrapper>
                                 <FormTitle title="Welcome at Qover" />
                             </FormTitleWrapper>
                             <FormInput
-                                value={""}
+                                value={email}
                                 label="Email"
                                 type="email"
                                 required
-                                handler={() => null}
+                                handler={handleEmailChange}
                             />
                             <FormInput
-                                value={""}
+                                value={password}
                                 label="Password"
                                 type="password"
                                 required
-                                handler={() => null}
+                                handler={handlePasswordChange}
                             />
                             <FormExtraWrapper>
                                 <FormCheckbox text={"Remember me"}/>
@@ -48,7 +79,6 @@ export const Login: React.FC = () => {
 
                             <FormButton 
                                 text={"Sign in to your account"}
-                                onSubmit={()=>null}
                             />
 
                         </FormLoginItems>

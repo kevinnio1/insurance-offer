@@ -15,8 +15,8 @@ export const FormSelectBox: React.FC<FormSelectBoxProps> = (props) => {
     return (
         <FormSelectBoxStyle>
             <FormSelectBoxLabel>{label}</FormSelectBoxLabel>
-            <FormSelectBoxSelect>
-                {options && options.map(option => <option value={option}>{option}</option>)}
+            <FormSelectBoxSelect value={value} required={required}>
+                {options && options.map((option, index) => <option value={option} key={index}>{option}</option>)}
             </FormSelectBoxSelect>
         </FormSelectBoxStyle>
     )
