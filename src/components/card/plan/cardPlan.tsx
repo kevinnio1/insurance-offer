@@ -2,6 +2,7 @@ import React from "react";
 import { CardPlanStyle, CardPrice, CardPriceText, CardPriceWrapper, CardRowBoldText, CardRowSpan, CardRowWrapper, CardRowWrapperFlex, CardTitle, CurrencySpan } from "@components/card/plan/cardPlanStyle";
 import { Button } from "@components/generic/button/button";
 import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
+import { getBelgianPrice } from "@utils/getBelgianPrice";
 
 interface CardPlanProps {
     title: string;
@@ -33,13 +34,13 @@ export const CardPlan: React.FC<CardPlanProps> = (props) => {
                 <CardRowSpan><CardRowBoldText>Maximum duration travel</CardRowBoldText> of <CardRowBoldText>{travelDuration} days</CardRowBoldText></CardRowSpan>
             </CardRowWrapper>
             <CardRowWrapper>
-                <CardRowSpan><CardRowBoldText>Medical expenses reimbursement</CardRowBoldText> up to <CardRowBoldText>{medicalExpenses.toLocaleString("nl-BE")} €</CardRowBoldText></CardRowSpan>
+                <CardRowSpan><CardRowBoldText>Medical expenses reimbursement</CardRowBoldText> up to <CardRowBoldText>{getBelgianPrice(medicalExpenses,0)} €</CardRowBoldText></CardRowSpan>
             </CardRowWrapper>
             <CardRowWrapper>
-                <CardRowSpan><CardRowBoldText>Personal assistance abroad</CardRowBoldText> up to <CardRowBoldText>{personalAssistanceAbroad.toLocaleString("nl-BE")} €</CardRowBoldText></CardRowSpan>
+                <CardRowSpan><CardRowBoldText>Personal assistance abroad</CardRowBoldText> up to <CardRowBoldText>{getBelgianPrice(personalAssistanceAbroad,0)} €</CardRowBoldText></CardRowSpan>
             </CardRowWrapper>
             <CardRowWrapper>
-                <CardRowSpan><CardRowBoldText>Travel assistance abroad</CardRowBoldText> up to <CardRowBoldText>{travelAssistanceAbroad.toLocaleString("nl-BE")} €</CardRowBoldText> per insured per travel</CardRowSpan>
+                <CardRowSpan><CardRowBoldText>Travel assistance abroad</CardRowBoldText> up to <CardRowBoldText>{getBelgianPrice(travelAssistanceAbroad,0)} €</CardRowBoldText> per insured per travel</CardRowSpan>
             </CardRowWrapper>
             <CardRowWrapper>
                 <CardRowSpan><CardRowBoldText>Coverage duration: {coverageDuration}</CardRowBoldText></CardRowSpan>

@@ -8,6 +8,7 @@ import { useLocation } from "react-router";
 import { PlanState } from "./models/planState";
 import { Redirect } from "react-router-dom";
 import { LogoutLink } from "@components/generic/logoutLink/logoutLink";
+import { getBelgianPrice } from "@utils/getBelgianPrice";
 
 export const Plan: React.FC = () => {
     const location = useLocation();
@@ -18,9 +19,9 @@ export const Plan: React.FC = () => {
 
     const getCorrectPrice = (price: number) => {
         if (isMonthly) {
-            return (price / 12).toFixed(2).replace(".", ",");
+            return getBelgianPrice(price/12, 2);
         } else {
-            return price.toFixed(2).replace(".", ",");
+            return getBelgianPrice(price, 2);
         }
     }
 

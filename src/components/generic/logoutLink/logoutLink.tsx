@@ -9,7 +9,7 @@ export const LogoutLink: React.FC = () => {
     return (
         <LogoutLinkStyle>
             <Button
-                text={"logout"}
+                text={"Logout"}
                 type="primary"
                 onClick={() => logout()}
             />

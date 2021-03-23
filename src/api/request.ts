@@ -12,7 +12,6 @@ const client = axios.create({
 /**
  * Request Wrapper with default success/error actions
  */
-// tslint:disable-next-line: no-any
 export const request = async <T = any>(options: AxiosRequestConfig) => {
     const onSuccess = (response: AxiosResponse<T>) => {
         return response.data;

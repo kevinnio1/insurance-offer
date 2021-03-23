@@ -48,7 +48,6 @@ export const RequestPrice: React.FC = (props) => {
                 });
             } else {
                 // something went wrong - implement messagebox or alert to notify the user
-
             }
         }
 

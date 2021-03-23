@@ -22,8 +22,6 @@ const PrivateRouteComponent: React.FC<RouteProps> = ({
                     } else if (render) {
                         return render(props);
                     }
-                } else {
-                    console.log("NOT AUTHENTICATED")
                 }
 
                 return (

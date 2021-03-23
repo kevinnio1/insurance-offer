@@ -15,6 +15,7 @@ import { AuthApiService } from "@api/auth/auth";
 export const Login: React.FC = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    
     const {
         authState: { isAuthenticated },
         login
