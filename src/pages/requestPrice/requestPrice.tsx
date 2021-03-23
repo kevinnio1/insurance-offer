@@ -5,10 +5,13 @@ import { FormSelectBox } from "@components/form/generic/formSelectBox/formSelect
 import { FormButton } from "@components/form/generic/formButton/formButton";
 import { PriceApiService } from "@api/price/price";
 import { useHistory } from "react-router";
+import { FormInlineError } from "@components/form/generic/formInlineError/formInlineError";
+import { LogoutLink } from "@components/generic/logoutLink/logoutLink";
 
 
 export const RequestPrice: React.FC = (props) => {
     const history = useHistory();
+
     const [age, setAge] = useState("");
     const [car, setCar] = useState("Audi");
     const [price, setPrice] = useState("");
@@ -22,7 +25,7 @@ export const RequestPrice: React.FC = (props) => {
         setAge(e.target.value)
     }
 
-    const handleCarChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const handleCarChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
         e.preventDefault();
         setCar(e.target.value);
     }
@@ -77,13 +80,13 @@ export const RequestPrice: React.FC = (props) => {
             setPorscheError(true);
             return false;
         }
-
         return true;
     }
 
     return (
         <RequestPriceStyle>
             <BackgroundImage>
+                <LogoutLink />
                 <DetailFormWrapper>
                     <RequestPriceForm onSubmit={handleSubmit}>
                         <FormInput
@@ -112,6 +115,7 @@ export const RequestPrice: React.FC = (props) => {
                             hasError={priceError}
                             errorMessage={"Sorry! The price of the car is too low"}
                         />
+                        {porscheError && <FormInlineError message="Sorry! We can not accept this particular risk" />}
                         <FormButton
                             text={"Get a price"}
                             handler={() => null}

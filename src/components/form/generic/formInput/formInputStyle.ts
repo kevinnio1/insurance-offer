@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { theme } from "@styles/theme";
-import { GenericLabel, GenericSpan } from "@styles/generics";
+import { GenericLabel } from "@styles/generics";
 
 export const FormInputStyle = styled.div`
     width: 100%;
@@ -43,11 +43,6 @@ export const FormInputTextExtraWrapper = styled.div`
 
 `;
 
-export const ErrorSpan = styled(GenericSpan)`
-    font-size: 15px;
-    font-weight: 500;
-    color: #ee3d57;
-`;
 
 export const FormInputTextExtraInnerWrapper = styled.div`
     margin-bottom: 10px;

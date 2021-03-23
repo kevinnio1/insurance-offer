@@ -1,11 +1,17 @@
 import styled from "styled-components";
 import { theme } from "@styles/theme";
 
-export const FormOptionSwitchStyle = styled.div`
+export const OptionSwitchStyle = styled.div`
     margin-top: 48px;
+    
+    input:checked + .slider:before {
+        -webkit-transform: translateX(20px);
+        -ms-transform: translateX(20px);
+        transform: translateX(20px);
+    }
 `;
 
-export const FormSwitch = styled.label`
+export const Switch = styled.label`
     position: relative;
     display: inline-block;
     width: 50px;
@@ -16,12 +22,6 @@ export const CheckboxInput = styled.input`
     opacity: 0;
     width: 0;
     height: 0;
-
-    &:checked + .slider:before {
-        -webkit-transform: translateX(20px);
-        -ms-transform: translateX(20px);
-        transform: translateX(20px);
-    }
 `;
 
 export const RoundSliderSpan = styled.span`
@@ -50,13 +50,13 @@ export const RoundSliderSpan = styled.span`
     }
 `;
 
-export const FormSwitchWrapper = styled.div`
+export const SwitchWrapper = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
 `;
 
-export const FormSwitchLabel = styled.label`
+export const SwitchLabel = styled.label`
     margin: 0px 10px;
     font-size: 13px;
     font-weight: normal;

@@ -8,21 +8,21 @@ import { AuthProvider } from '@hooks/useAuthContext';
 import { PrivateRoute } from '@components/generic/privateRoute/privateRoute';
 
 export const App: React.FC = () => (
+
   <AuthProvider>
-    <BrowserRouter>
-      <Switch>
-        <Route path="/login" component={Login} />
+  <BrowserRouter>
+    <Switch>
+      <Route path="/login" component={Login} />
+      <PrivateRoute path="*" render={() => (
+        <Layout>
+          <PrivateRoute exact path="/" component={RequestPrice} />
+          <PrivateRoute exact path="/plan" component={Plan} />
+        </Layout>
+      )} />
 
-        <PrivateRoute path="*" render={() => (
-          <Layout>
-            <PrivateRoute exact path="/" component={RequestPrice} />
-            <PrivateRoute exact path="/plan" component={Plan} />
-          </Layout>
-        )} />
-
-      </Switch>
-    </BrowserRouter>
-  </AuthProvider>
+    </Switch>
+  </BrowserRouter>
+  </AuthProvider >
 
 
 )

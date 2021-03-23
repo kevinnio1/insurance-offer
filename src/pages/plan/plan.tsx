@@ -1,47 +1,64 @@
-import React from "react";
+import React, { useState } from "react";
 import { PlanStyle, PlanTitle, PlanWrapper } from "@pages/plan/planStyle";
-import { FormOptionSwitch } from "@components/form/generic/formOptionSwitch/formOptionSwitch";
+import { OptionSwitch } from "@components/generic/optionSwitch/optionSwitch";
 import { LinkWithIcon } from "@components/generic/linkWithIcon/linkWithIcon";
 import URLICON from "@assets/images/icon-comparison.svg";
 import { CardPlan } from "@components/card/plan/cardPlan";
 import { useLocation } from "react-router";
 import { PlanState } from "./models/planState";
 import { Redirect } from "react-router-dom";
+import { LogoutLink } from "@components/generic/logoutLink/logoutLink";
 
 export const Plan: React.FC = () => {
     const location = useLocation();
     const locationState = location.state as PlanState;
 
+    const [isGlobalSelected, setIsGlobalSelected] = useState(true);
+    const [isMonthly, setIsMonthly] = useState(false);
+
+    const getCorrectPrice = (price: number) => {
+        if (isMonthly) {
+            return (price / 12).toFixed(2).replace(".", ",");
+        } else {
+            return price.toFixed(2).replace(".", ",");
+        }
+    }
+
     if (locationState && locationState.globalPrice && locationState.universalPrice) {
         return (
             <PlanStyle>
+                <LogoutLink />
                 <PlanTitle>Select a plan</PlanTitle>
-                <FormOptionSwitch
+                <OptionSwitch
                     option1={"PAY MONTHLY"}
                     option2={"PAY YEARLY"}
-                    handler={() => null}
-                    isOptionOne={false}
+                    handler={(e: React.ChangeEvent<HTMLInputElement>) => {
+                        setIsMonthly(!isMonthly);
+                    }}
+                    isOptionOne={isMonthly}
                 />
                 <PlanWrapper>
                     <CardPlan
                         title={"Global"}
-                        price={locationState.globalPrice}
+                        price={getCorrectPrice(locationState.globalPrice)}
                         travelDuration={90}
                         medicalExpenses={1000000}
                         personalAssistanceAbroad={5000}
                         travelAssistanceAbroad={1000}
                         coverageDuration={"1 year"}
-                        isSelected={true}
+                        isSelected={isGlobalSelected}
+                        setSelected={setIsGlobalSelected}
                     />
                     <CardPlan
                         title={"Universe"}
-                        price={locationState.universalPrice}
+                        price={getCorrectPrice(locationState.universalPrice)}
                         travelDuration={180}
                         medicalExpenses={3000000}
                         personalAssistanceAbroad={10000}
                         travelAssistanceAbroad={25000}
                         coverageDuration={"1 year"}
-                        isSelected={false}
+                        isSelected={!isGlobalSelected}
+                        setSelected={(bool: boolean) => setIsGlobalSelected(!bool)}
                     />
                 </PlanWrapper>
                 <LinkWithIcon

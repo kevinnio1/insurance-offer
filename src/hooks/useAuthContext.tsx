@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect, useCallback, useMemo, useRef } from "react";
+import React, { useContext, useState, useCallback, useMemo, useRef } from "react";
 import { AuthService } from "@utils/auth/authService";
 import { AccessToken } from "@utils/auth/accessToken";
 

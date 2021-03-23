@@ -5,17 +5,18 @@ import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 
 interface CardPlanProps {
     title: string;
-    price: number;
+    price: string;
     travelDuration: number;
     medicalExpenses: number;
     personalAssistanceAbroad: number;
     travelAssistanceAbroad: number;
     coverageDuration: string;
     isSelected: boolean;
+    setSelected: (bool: boolean) => void;
 }
 
 export const CardPlan: React.FC<CardPlanProps> = (props) => {
-    const { title, price, travelDuration, medicalExpenses, personalAssistanceAbroad, travelAssistanceAbroad, coverageDuration, isSelected } = props;
+    const { title, price, travelDuration, medicalExpenses, personalAssistanceAbroad, travelAssistanceAbroad, coverageDuration, isSelected, setSelected } = props;
 
     return (
         <CardPlanStyle isSelected={isSelected}>
@@ -24,7 +25,7 @@ export const CardPlan: React.FC<CardPlanProps> = (props) => {
             </CardRowWrapper>
             <CardPriceWrapper isSelected={isSelected}>
                 <CardPrice>
-                    {price.toFixed(2).toString().replace(".", ",")} <CurrencySpan>€</CurrencySpan>
+                    {price} <CurrencySpan>€</CurrencySpan>
                 </CardPrice>
                 <CardPriceText>YEARLY INCL. TAXES</CardPriceText>
             </CardPriceWrapper>
@@ -49,14 +50,13 @@ export const CardPlan: React.FC<CardPlanProps> = (props) => {
                             text="Plan selected"
                             type="default"
                             fontAwesomeIcon={faCheckCircle}
-                            onClick={() => null}
                             fullWidth
                         />
                     ) : (
                         <Button
                             text="Choose this plan"
                             type="primary"
-                            onClick={() => null}
+                            onClick={()=> setSelected(true)}
                             fullWidth
                         />
                     )}

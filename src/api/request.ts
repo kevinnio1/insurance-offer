@@ -2,16 +2,6 @@ import { AuthService } from "@utils/auth/authService";
 import { API_URL } from "@utils/env";
 import axios, { AxiosError, AxiosRequestConfig, AxiosResponse } from "axios";
 
-const authHeader: AxiosRequestConfig["headers"] = {};
-
-try {
-    const token = AuthService.getJwt();
-
-    if (token) {
-        authHeader.Authorization = `Bearer ${token}`;
-    }
-} catch (err) { }
-
 /**
  * Create an Axios Client with defaults
  */
@@ -38,12 +28,28 @@ export const request = async <T = any>(options: AxiosRequestConfig) => {
         .catch(onError);
 };
 
+export const getAuthHeader = () => {
+    try {
+        const authHeader: AxiosRequestConfig["headers"] = {};
+
+        const token = AuthService.getJwt();
+    
+        if (token) {
+            authHeader.Authorization = `Bearer ${token}`;
+        }
+        return authHeader;
+    } catch (err) { 
+
+    }
+
+}
+
 export const authRequest = async <T>(options: AxiosRequestConfig) => {
     return request<T>({
         ...options,
         headers: {
             ...options.headers,
-            ...authHeader
+            ...getAuthHeader()
         }
     });
 };

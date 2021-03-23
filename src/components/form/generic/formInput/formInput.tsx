@@ -1,5 +1,6 @@
 import React from "react"
-import { FormInputStyle, FormInputLabel, FormInputText, FormInputLabelExtra, FormInputTextExtraWrapper, ErrorSpan, FormInputTextExtraInnerWrapper } from "@components/form/generic/formInput/formInputStyle";
+import { FormInputStyle, FormInputLabel, FormInputText, FormInputLabelExtra, FormInputTextExtraWrapper, FormInputTextExtraInnerWrapper } from "@components/form/generic/formInput/formInputStyle";
+import { InlineErrorSpan } from "@components/generic/inlineError/inlineErrorStyle";
 
 interface FormInputProps {
     value: string;
@@ -23,7 +24,7 @@ export const FormInput: React.FC<FormInputProps> = (props) => {
                     <FormInputText hasError={hasError} type={type} required={required} value={value} onChange={handler} />
                     {extraLabel && <FormInputLabelExtra hasError={hasError}>{extraLabel}</FormInputLabelExtra>}
                 </FormInputTextExtraInnerWrapper>
-                {hasError && <ErrorSpan>{errorMessage}</ErrorSpan>}
+                {hasError && <InlineErrorSpan>{errorMessage}</InlineErrorSpan>}
             </FormInputTextExtraWrapper>
         </FormInputStyle>
     )

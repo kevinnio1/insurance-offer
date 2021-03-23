@@ -8,7 +8,7 @@ interface ButtonProps {
     icon?: string;
     fontAwesomeIcon?: IconDefinition;
     fullWidth?: boolean;
-    onClick: React.MouseEventHandler<HTMLButtonElement>;
+    onClick?: React.MouseEventHandler<HTMLButtonElement>;
 }
 
 export const Button: React.FC<ButtonProps> = (props) => {
@@ -16,7 +16,7 @@ export const Button: React.FC<ButtonProps> = (props) => {
 
     return (
         <ButtonB onClick={onClick} customType={type} fullWidth={fullWidth}>
-            {icon && <img src={icon} />}
+            {icon && <img src={icon} alt="icon for button"/>}
             {fontAwesomeIcon && <FaIcon icon={fontAwesomeIcon} />}
             <ButtonTextSpan>{text}</ButtonTextSpan>
         </ButtonB>
