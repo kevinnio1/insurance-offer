@@ -21,7 +21,7 @@ export const AuthContext = React.createContext<AuthContextStateProps>({
     authState: {
         isAuthenticated: false
     },
-    login(_) {
+    login() {
         throw new Error("Not implemented");
     },
     logout() {

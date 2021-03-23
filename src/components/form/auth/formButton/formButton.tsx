@@ -6,7 +6,7 @@ interface FormButtonProps {
 }
 
 export const FormButton: React.FC<FormButtonProps> = (props) => {
-    const {text } = props;
+    const { text } = props;
 
     return (
         <FormButtonSubmit type="submit">
