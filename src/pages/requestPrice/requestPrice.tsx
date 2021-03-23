@@ -39,18 +39,19 @@ export const RequestPrice: React.FC = (props) => {
         e.preventDefault();
         resetErrors();
         if (isDataValid()) {
-            const res = await PriceApiService.getPrice({ age, car, price });
+            try {
+                const res = await PriceApiService.getPrice({ age, car, price });
 
-            if (res && res.universalPrice && res.globalPrice) {
-                history.push(`/plan`, {
-                    universalPrice: res.universalPrice,
-                    globalPrice: res.globalPrice
-                });
-            } else {
-                // something went wrong - implement messagebox or alert to notify the user
+                if (res && res.universalPrice && res.globalPrice) {
+                    history.push(`/plan`, {
+                        universalPrice: res.universalPrice,
+                        globalPrice: res.globalPrice
+                    });
+                }
+            } catch (error) {
+                // TODO: notify the user something went wrong
             }
         }
-
     }
 
     const resetErrors = () => {

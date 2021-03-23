@@ -10,12 +10,14 @@ import { FormButton } from "@components/form/auth/formButton/formButton";
 import { useAuthContext } from "@hooks/useAuthContext";
 import { Redirect } from "react-router-dom";
 import { AuthApiService } from "@api/auth/auth";
+import { InlineError } from "@components/generic/inlineError/inlineError";
 
 
 export const Login: React.FC = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    
+    const [loginError, setLoginError] = useState(false);
+
     const {
         authState: { isAuthenticated },
         login
@@ -33,9 +35,15 @@ export const Login: React.FC = () => {
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        const res = await AuthApiService.login({ email, password });
-        if (res.access_token) {
-            login(res.access_token);
+        setLoginError(false);
+
+        try {
+            const res = await AuthApiService.login({ email, password });
+            if (res.access_token) {
+                login(res.access_token);
+            }
+        } catch (error) {
+            setLoginError(true)
         }
     }
 
@@ -74,17 +82,17 @@ export const Login: React.FC = () => {
                                 handler={handlePasswordChange}
                             />
                             <FormExtraWrapper>
-                                <FormCheckbox text={"Remember me"}/>
+                                <FormCheckbox text={"Remember me"} />
                                 <FormLinkText text={"Forgot your password?"} onClickLink="#" />
                             </FormExtraWrapper>
-
-                            <FormButton 
+                            {loginError && <InlineError>Wrong username or password</InlineError>}
+                            <FormButton
                                 text={"Sign in to your account"}
                             />
 
                         </FormLoginItems>
                     </FormLogin>
-                    <ButtonTransparent>Don't have an account? <a href="#" target="_blank" rel="noopener noreferrer nofollow">Aks access</a></ButtonTransparent>
+                    <ButtonTransparent>Don't have an account? <a href="https://www.qover.com/contact-us" target="_blank" rel="noopener noreferrer nofollow">Aks access</a></ButtonTransparent>
                 </FromLoginWrapper>
             </Center>
             <Footer>
