@@ -38,6 +38,7 @@ export const RequestPrice: React.FC = (props) => {
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         resetErrors();
+        
         if (isDataValid()) {
             try {
                 const res = await PriceApiService.getPrice({ age, car, price });
@@ -62,15 +63,16 @@ export const RequestPrice: React.FC = (props) => {
     }
 
     const isDataValid = (): Boolean => {
+        let isValid = true;
 
         if (parseFloat(price) < 5000) {
             setPriceError(true);
-            return false;
+            isValid=false;
         }
 
         if (parseInt(age) < 18) {
             setAgeError(true);
-            return false;
+            isValid=false;
         }
 
         if (
@@ -78,9 +80,10 @@ export const RequestPrice: React.FC = (props) => {
             car.toUpperCase() === 'PORSCHE'
         ) {
             setPorscheError(true);
-            return false;
+            isValid=false;
         }
-        return true;
+
+        return isValid;
     }
 
     return (
