@@ -14,10 +14,11 @@ interface CardPlanProps {
     coverageDuration: string;
     isSelected: boolean;
     setSelected: (bool: boolean) => void;
+    isMonthly: boolean;
 }
 
 export const CardPlan: React.FC<CardPlanProps> = (props) => {
-    const { title, price, travelDuration, medicalExpenses, personalAssistanceAbroad, travelAssistanceAbroad, coverageDuration, isSelected, setSelected } = props;
+    const { title, price, travelDuration, medicalExpenses, personalAssistanceAbroad, travelAssistanceAbroad, coverageDuration, isSelected, isMonthly, setSelected } = props;
 
     return (
         <CardPlanStyle isSelected={isSelected}>
@@ -28,7 +29,7 @@ export const CardPlan: React.FC<CardPlanProps> = (props) => {
                 <CardPrice>
                     {price} <CurrencySpan>€</CurrencySpan>
                 </CardPrice>
-                <CardPriceText>YEARLY INCL. TAXES</CardPriceText>
+                <CardPriceText>{isMonthly ? "MONTHLY" : "YEARLY"} INCL. TAXES</CardPriceText>
             </CardPriceWrapper>
             <CardRowWrapper>
                 <CardRowSpan><CardRowBoldText>Maximum duration travel</CardRowBoldText> of <CardRowBoldText>{travelDuration} days</CardRowBoldText></CardRowSpan>

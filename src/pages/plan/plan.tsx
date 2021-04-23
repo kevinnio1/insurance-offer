@@ -49,6 +49,7 @@ export const Plan: React.FC = () => {
                         coverageDuration={"1 year"}
                         isSelected={isGlobalSelected}
                         setSelected={setIsGlobalSelected}
+                        isMonthly={isMonthly}
                     />
                     <CardPlan
                         title={"Universe"}
@@ -60,6 +61,7 @@ export const Plan: React.FC = () => {
                         coverageDuration={"1 year"}
                         isSelected={!isGlobalSelected}
                         setSelected={(bool: boolean) => setIsGlobalSelected(!bool)}
+                        isMonthly={isMonthly}
                     />
                 </PlanWrapper>
                 <LinkWithIcon
